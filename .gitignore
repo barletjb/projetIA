@@ -1,19 +1,53 @@
-.idea/
-*.iml
-
+# =============================================
+# SENSIBLE
+# =============================================
+.env
+*.env
+application-local.properties
+application-prod.properties
+application-secrets.properties
+ 
+# =============================================
+# SPRING BOOT / MAVEN
+# =============================================
+target/
+build/
+*.jar
+*.war
+*.ear
+!.mvn/wrapper/maven-wrapper.jar
+ 
+# =============================================
+# ANGULAR / NODE
+# =============================================
 node_modules/
 dist/
 .angular/
 .tmp/
 .cache/
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-.env
-target/
-build/
-
+package-lock.json
+ 
+# =============================================
+# INTELLIJ IDEA
+# =============================================
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+ 
+# =============================================
+# VS CODE
+# =============================================
+.vscode/
+!.vscode/extensions.json
+ 
+# =============================================
+# OS
+# =============================================
 .DS_Store
 Thumbs.db
+ 
