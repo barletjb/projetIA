@@ -11,4 +11,8 @@ export class PromptCard {
 
   prompt = input.required<Prompt>()
 
+  copyToClipBoard() {
+    void navigator.clipboard.writeText(this.prompt().content)
+  }
+
 }
