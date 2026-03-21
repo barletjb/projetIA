@@ -8,6 +8,6 @@ export interface Prompt {
   "score": number,
   "createdAt": string,
   "category": Category
-  //"author": Author
+  "author"?: Author
   "userVote": null | 'up' | 'down'
 }
