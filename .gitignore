@@ -3,6 +3,7 @@
 # =============================================
 .env
 *.env
+datasql
 application-local.properties
 application-prod.properties
 application-secrets.properties
