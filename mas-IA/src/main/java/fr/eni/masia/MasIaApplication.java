@@ -1,4 +1,4 @@
-package com.projetia.masia;
+package fr.eni.masia;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

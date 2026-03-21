@@ -1,4 +1,4 @@
-package com.projetia.masia;
+package fr.eni.masia;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
