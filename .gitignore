@@ -7,6 +7,8 @@ data.sql
 application-local.properties
 application-prod.properties
 application-secrets.properties
+application-secret.yml
+application-secret.properties
  
 # =============================================
 # SPRING BOOT / MAVEN
