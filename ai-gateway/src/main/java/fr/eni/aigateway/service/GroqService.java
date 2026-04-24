@@ -1,7 +1,7 @@
 package fr.eni.aigateway.service;
 
-import fr.eni.aigateway.model.GroqRequestDTO;
-import fr.eni.aigateway.model.GroqResponseDTO;
+import fr.eni.aigateway.model.groq.GroqRequestDTO;
+import fr.eni.aigateway.model.groq.GroqResponseDTO;
 import fr.eni.aigateway.model.IARequestDTO;
 import fr.eni.aigateway.model.IAResponseDTO;
 import lombok.RequiredArgsConstructor;

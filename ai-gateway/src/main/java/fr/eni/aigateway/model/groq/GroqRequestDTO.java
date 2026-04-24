@@ -1,4 +1,4 @@
-package fr.eni.aigateway.model;
+package fr.eni.aigateway.model.groq;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

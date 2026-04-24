@@ -1,4 +1,4 @@
-package fr.eni.aigateway.model;
+package fr.eni.aigateway.model.groq;
 
 import lombok.Data;
 import lombok.Getter;
