@@ -1,11 +1,11 @@
-package fr.eni.masia.prompt.models.dto;
+package fr.eni.masia.model.prompt;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class CreatePromptDTO {
+public class UpdatePromptDTO {
     @NotBlank
     private String title;
 

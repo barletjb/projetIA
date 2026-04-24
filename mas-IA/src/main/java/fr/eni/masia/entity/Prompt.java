@@ -1,45 +1,48 @@
-package fr.eni.masia.prompt.models.entity;
+package fr.eni.masia.entity;
 
-import fr.eni.masia.category.models.entity.Category;
-import fr.eni.masia.user.models.entity.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.Instant;
 
-@Entity
-@Table(name = "prompts")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Entity
+@Table(name = "prompts")
 public class Prompt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
+    @EqualsAndHashCode.Include
     private String title;
 
     @Column(nullable = false, columnDefinition = "TEXT")
+    @ToString.Exclude
     private String content;
 
     @Column(nullable = false)
-    private int score;
+    private Integer score;
 
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
+    @ToString.Exclude
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
+    @EqualsAndHashCode.Include
+    @ToString.Exclude
     private User author;
 
     @PrePersist

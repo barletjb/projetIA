@@ -1,6 +1,6 @@
-package fr.eni.masia.category.repository;
+package fr.eni.masia.dao;
 
-import fr.eni.masia.category.models.entity.Category;
+import fr.eni.masia.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

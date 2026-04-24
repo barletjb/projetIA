@@ -1,9 +1,9 @@
-package fr.eni.masia.category.service;
+package fr.eni.masia.service;
 
-import fr.eni.masia.category.models.dto.CategoryDTO;
-import fr.eni.masia.category.models.dto.CreateCategoryDTO;
-import fr.eni.masia.category.models.entity.Category;
-import fr.eni.masia.category.repository.CategoryRepository;
+import fr.eni.masia.model.category.CategoryDTO;
+import fr.eni.masia.model.category.CreateCategoryDTO;
+import fr.eni.masia.entity.Category;
+import fr.eni.masia.dao.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

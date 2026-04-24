@@ -1,15 +1,15 @@
-package fr.eni.masia.prompt.service;
+package fr.eni.masia.service;
 
-import fr.eni.masia.category.models.dto.CategoryDTO;
-import fr.eni.masia.category.models.entity.Category;
-import fr.eni.masia.category.repository.CategoryRepository;
-import fr.eni.masia.prompt.models.dto.CreatePromptDTO;
-import fr.eni.masia.prompt.models.dto.PromptWithCategoryDTO;
-import fr.eni.masia.prompt.models.dto.UpdatePromptDTO;
-import fr.eni.masia.prompt.models.entity.Prompt;
-import fr.eni.masia.prompt.repository.PromptRepository;
-import fr.eni.masia.vote.models.entity.Vote;
-import fr.eni.masia.vote.repository.VoteRepository;
+import fr.eni.masia.dao.CategoryRepository;
+import fr.eni.masia.dao.PromptRepository;
+import fr.eni.masia.dao.VoteRepository;
+import fr.eni.masia.entity.Category;
+import fr.eni.masia.entity.Prompt;
+import fr.eni.masia.entity.Vote;
+import fr.eni.masia.model.category.CategoryDTO;
+import fr.eni.masia.model.prompt.CreatePromptDTO;
+import fr.eni.masia.model.prompt.PromptWithCategoryDTO;
+import fr.eni.masia.model.prompt.UpdatePromptDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -100,7 +100,7 @@ public class PromptService {
         Prompt prompt = getOrThrow(promptId);
 
         Vote.VoteType voteType = Vote.VoteType.valueOf(type);
-        int delta = voteType == Vote.VoteType.up ? 1 : -1;
+        int delta = voteType == Vote.VoteType.UP ? 1 : -1;
 
         Optional<Vote> existingOpt = voteRepository.findByPromptId(promptId);
 

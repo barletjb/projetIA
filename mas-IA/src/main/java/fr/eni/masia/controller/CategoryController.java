@@ -1,8 +1,8 @@
-package fr.eni.masia.category.controller;
+package fr.eni.masia.controller;
 
-import fr.eni.masia.category.models.dto.CategoryDTO;
-import fr.eni.masia.category.models.dto.CreateCategoryDTO;
-import fr.eni.masia.category.service.CategoryService;
+import fr.eni.masia.model.category.CategoryDTO;
+import fr.eni.masia.model.category.CreateCategoryDTO;
+import fr.eni.masia.service.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

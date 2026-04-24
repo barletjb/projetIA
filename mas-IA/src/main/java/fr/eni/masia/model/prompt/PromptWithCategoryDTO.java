@@ -1,7 +1,7 @@
-package fr.eni.masia.prompt.models.dto;
+package fr.eni.masia.model.prompt;
 
 
-import fr.eni.masia.category.models.dto.CategoryDTO;
+import fr.eni.masia.model.category.CategoryDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

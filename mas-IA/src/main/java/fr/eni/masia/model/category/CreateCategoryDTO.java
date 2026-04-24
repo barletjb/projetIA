@@ -1,4 +1,4 @@
-package fr.eni.masia.category.models.dto;
+package fr.eni.masia.model.category;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

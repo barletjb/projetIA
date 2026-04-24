@@ -1,9 +1,9 @@
-package fr.eni.masia.prompt.controller;
+package fr.eni.masia.controller;
 
-import fr.eni.masia.prompt.models.dto.CreatePromptDTO;
-import fr.eni.masia.prompt.models.dto.PromptWithCategoryDTO;
-import fr.eni.masia.prompt.models.dto.UpdatePromptDTO;
-import fr.eni.masia.prompt.service.PromptService;
+import fr.eni.masia.model.prompt.CreatePromptDTO;
+import fr.eni.masia.model.prompt.PromptWithCategoryDTO;
+import fr.eni.masia.model.prompt.UpdatePromptDTO;
+import fr.eni.masia.service.PromptService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -28,7 +28,6 @@ public class PromptController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public PromptWithCategoryDTO findOne(@PathVariable Long id) {
-
         return promptService.findById(id, null);
     }
 

@@ -1,22 +1,20 @@
-package fr.eni.masia.vote.models.entity;
+package fr.eni.masia.entity;
 
-import fr.eni.masia.prompt.models.entity.Prompt;
-import fr.eni.masia.user.models.entity.User;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode(of = { "prompt", "user"})
+@Builder
 @Entity
 @Table(
         name = "votes",
         uniqueConstraints = @UniqueConstraint(columnNames = {"prompt_id", "user_id"})
 )
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Vote {
 
     @Id
@@ -24,10 +22,12 @@ public class Vote {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     @JoinColumn(name = "prompt_id", nullable = false)
     private Prompt prompt;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
@@ -36,7 +36,7 @@ public class Vote {
     private VoteType type;
 
     public enum VoteType {
-        up, down
+        UP, DOWN
     }
 }
 

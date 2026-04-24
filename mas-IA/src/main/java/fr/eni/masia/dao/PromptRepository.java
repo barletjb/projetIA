@@ -1,6 +1,6 @@
-package fr.eni.masia.prompt.repository;
+package fr.eni.masia.dao;
 
-import fr.eni.masia.prompt.models.entity.Prompt;
+import fr.eni.masia.entity.Prompt;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
