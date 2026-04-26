@@ -23,7 +23,6 @@ public class OpenRouterService {
 
     private static final String GPT = "openai/gpt-oss-120b:free";
     public static final String LING = "inclusionai/ling-2.6-1t:free";
-    private static final String META = "meta-llama/llama-3.3-70b-instruct:free";
     private static final String TENCENT = "tencent/hy3-preview:free";
 
 

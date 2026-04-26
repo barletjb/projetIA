@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/prompts")
+@RequestMapping("api/prompts")
 @RequiredArgsConstructor
 public class PromptController {
 

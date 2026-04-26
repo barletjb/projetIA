@@ -23,6 +23,6 @@ public class User {
     private String username;
 
     @ToString.Exclude
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 100)
     private String password;
 }

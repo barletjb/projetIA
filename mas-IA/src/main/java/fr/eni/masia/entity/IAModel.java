@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "IA_MODEL")
+@Table(name = "ia_model")
 public class IAModel {
 
     @Id
