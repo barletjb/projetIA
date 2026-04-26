@@ -7,15 +7,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
 
 @Configuration
-public class GroqConfig {
+public class OpenRouterConfig {
 
-    @Value("${groq.api.key}")
+    @Value("${openrouter.api.key}")
     private String apiKey;
 
     @Bean
-    public RestClient groqRestClient() {
+    public RestClient openRouterRestClient() {
         return RestClient.builder()
-                .baseUrl("https://api.groq.com/openai/v1")
+                .baseUrl("https://openrouter.ai/api/v1")
                 .defaultHeader("Authorization", "Bearer " + apiKey)
                 .defaultHeader("Content-Type", "application/json")
                 .build();
