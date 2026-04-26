@@ -2,22 +2,24 @@ package fr.eni.aigateway.controller;
 
 import fr.eni.aigateway.model.IARequestDTO;
 import fr.eni.aigateway.model.IAResponseDTO;
-import fr.eni.aigateway.service.GroqService;
+import fr.eni.aigateway.service.OpenRouterService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/ia")
-public class IAController {
+public class OpenRouterController {
 
-    private final GroqService groqService;
+    private final OpenRouterService groqService;
 
-    @PostMapping("/groq")
+    @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public IAResponseDTO groqRequest(@Valid @RequestBody IARequestDTO requestDTO) {
+    public List<IAResponseDTO> gptRequest(@Valid @RequestBody IARequestDTO requestDTO) {
 
         return groqService.sendPrompt(requestDTO);
     }
