@@ -1,4 +1,4 @@
-package fr.eni.aigateway.model.groq;
+package fr.eni.aigateway.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-public class GroqRequestDTO {
+public class RequestModelDTO {
 
     private String model;
     private List<Message> messages;

@@ -1,6 +1,5 @@
-package fr.eni.aigateway.model.groq;
+package fr.eni.aigateway.model;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,16 +7,18 @@ import java.util.List;
 
 @Getter
 @Setter
-public class GroqResponseDTO {
+public class ResponseModelDTO {
 
     private List<Choice> choices;
 
-    @Data
+    @Getter
+    @Setter
     public static class Choice {
         private Message message;
     }
 
-    @Data
+    @Getter
+    @Setter
     public static class Message {
         private String content;
     }

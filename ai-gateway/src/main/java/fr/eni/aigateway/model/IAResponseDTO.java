@@ -9,5 +9,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class IAResponseDTO {
 
+    private String model;
     private String result;
 }
