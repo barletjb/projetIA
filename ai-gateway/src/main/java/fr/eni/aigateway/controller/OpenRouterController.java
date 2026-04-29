@@ -15,13 +15,13 @@ import java.util.List;
 @RequestMapping("/api/ia")
 public class OpenRouterController {
 
-    private final OpenRouterService groqService;
+    private final OpenRouterService openRouterService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public List<IAResponseDTO> gptRequest(@Valid @RequestBody IARequestDTO requestDTO) {
 
-        return groqService.sendPrompt(requestDTO);
+        return openRouterService.sendPrompt(requestDTO);
     }
 
 }

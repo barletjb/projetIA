@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpClientErrorException;
 
 import java.net.URI;
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -17,9 +18,9 @@ public class GlobalExceptionHandler {
     public ProblemDetail handleValidationException(MethodArgumentNotValidException ex) {
         ProblemDetail problem = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
         problem.setTitle("Erreur de validation");
-        problem.setDetail(ex.getBindingResult().getFieldErrors().stream()
+        problem.setDetail(ex.getFieldErrors().stream()
                 .map(e -> e.getField() + " : " + e.getDefaultMessage())
-                .reduce("", (a, b) -> a + b + " | "));
+                .collect(Collectors.joining(" | ")));
         problem.setType(URI.create("errors/validation"));
         return problem;
     }
