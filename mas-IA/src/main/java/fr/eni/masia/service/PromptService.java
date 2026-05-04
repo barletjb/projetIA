@@ -7,16 +7,17 @@ import fr.eni.masia.entity.Category;
 import fr.eni.masia.entity.Prompt;
 import fr.eni.masia.entity.Vote;
 import fr.eni.masia.model.category.CategoryDTO;
-import fr.eni.masia.model.prompt.CreatePromptDTO;
-import fr.eni.masia.model.prompt.PromptWithCategoryDTO;
-import fr.eni.masia.model.prompt.UpdatePromptDTO;
+import fr.eni.masia.model.prompt.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestClient;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -26,10 +27,28 @@ public class PromptService {
     private final PromptRepository promptRepository;
     private final VoteRepository voteRepository;
     private final CategoryRepository categoryRepository;
+    private final IAModelService iaModelService;
+    private final RestClient aiGatewayRestClient;
 
-    // ----------------------------------------------------------------
-    // Lecture
-    // ----------------------------------------------------------------
+
+    public List<PromptResponseDTO> sendPrompt(PromptRequestDTO request) {
+
+        List<String> modelNames = request.getModelIds().stream()
+                .map(id -> iaModelService.getById(id).getModelId())
+                .toList();
+
+        Map<String, Object> body = Map.of(
+                "prompt", request.getPrompt(),
+                "models", modelNames
+        );
+
+        return aiGatewayRestClient
+                .post()
+                .uri("/api/ia")
+                .body(body)
+                .retrieve()
+                .body(new ParameterizedTypeReference<List<PromptResponseDTO>>() {});
+    }
 
     @Transactional(readOnly = true)
     public List<PromptWithCategoryDTO> findAllSortedByScore(Long currentUserId) {
@@ -52,10 +71,6 @@ public class PromptService {
                 : null;
         return toDto(prompt, vote);
     }
-
-    // ----------------------------------------------------------------
-    // Écriture
-    // ----------------------------------------------------------------
 
     @Transactional
     public PromptWithCategoryDTO create(CreatePromptDTO dto) {
