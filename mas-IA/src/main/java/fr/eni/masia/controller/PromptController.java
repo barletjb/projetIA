@@ -1,8 +1,6 @@
 package fr.eni.masia.controller;
 
-import fr.eni.masia.model.prompt.CreatePromptDTO;
-import fr.eni.masia.model.prompt.PromptWithCategoryDTO;
-import fr.eni.masia.model.prompt.UpdatePromptDTO;
+import fr.eni.masia.model.prompt.*;
 import fr.eni.masia.service.PromptService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +15,12 @@ import java.util.List;
 public class PromptController {
 
     private final PromptService promptService;
+
+    @PostMapping("/send")
+    @ResponseStatus(HttpStatus.OK)
+    public List<PromptResponseDTO> sendPrompt(@Valid @RequestBody PromptRequestDTO requestDTO) {
+        return promptService.sendPrompt(requestDTO);
+    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
