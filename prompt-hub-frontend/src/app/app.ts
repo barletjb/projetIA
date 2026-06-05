@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
-import {PromptList} from './prompts/prompt-list/prompt-list';
-import {Navbar} from './navbar/navbar';
+import {PromptList} from './components/prompts/prompt-list/prompt-list';
+import {Navbar} from './shared/navbar/navbar';
 
 @Component({
   selector: 'app-root',
