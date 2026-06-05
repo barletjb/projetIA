@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router'
-import {PromptList} from './components/prompts/prompt-list/prompt-list';
+
 
 export const routes: Routes = [
-  { path: '', component: PromptList, title: 'PromptHub' },
+  { path: '',
+    loadComponent: () => import("./components/prompts/prompt-list/prompt-list").then((c) => c.PromptList),
+    title: 'PromptHub' },
   {
     path:'login',
     loadComponent: () => import("./components/login/login").then((c) => c.Login),

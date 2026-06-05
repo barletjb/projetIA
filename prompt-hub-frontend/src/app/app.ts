@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import {PromptList} from './components/prompts/prompt-list/prompt-list';
 import {Navbar} from './shared/navbar/navbar';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,8 @@ import {Navbar} from './shared/navbar/navbar';
   styleUrl: './app.scss',
   imports: [
     PromptList,
-    Navbar
+    Navbar,
+    RouterOutlet
   ]
 })
 export class App {}
