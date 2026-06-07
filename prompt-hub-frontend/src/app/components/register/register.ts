@@ -18,7 +18,7 @@ export class Register {
   private readonly router = inject(Router)
 
   registerForm = this.fb.group({
-    fullName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+    pseudo: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required]
@@ -26,8 +26,8 @@ export class Register {
     validators: passwordMatchValidator
   })
 
-  get fullName() {
-    return this.registerForm.controls['fullName'];
+  get pseudo() {
+    return this.registerForm.controls['pseudo'];
   }
 
   get email() {
