@@ -20,4 +20,9 @@ export const routes: Routes = [
     loadComponent: () => import('./components/profil/profil').then((c) => c.Profil),
     title: 'Profil',
   },
+  {
+    path: 'new-prompt',
+    loadComponent: () => import('./components/prompts/prompt-add/prompt-add').then((c) => c.PromptAdd),
+    title: 'New Prompt',
+  },
 ]

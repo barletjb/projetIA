@@ -1,0 +1,43 @@
+<div class="flex justify-content-center mt-4">
+  <p-card header="Ajouter un prompt" [style]="{ width: '560px' }">
+    <form [formGroup]="promptForm" (ngSubmit)="onSubmit()">
+
+      <div class="field">
+        <label>Titre</label>
+        <input pInputText formControlName="title" class="w-full" placeholder="Titre du prompt"/>
+        @if (promptForm.controls['title'].invalid && promptForm.controls['title'].touched) {
+          <small class="p-error">Titre requis</small>
+        }
+      </div>
+
+      <div class="field">
+        <label>Contenu</label>
+        <textarea pTextarea formControlName="content" class="w-full" rows="8" placeholder="Contenu du prompt"></textarea>
+        @if (promptForm.controls['content'].invalid && promptForm.controls['content'].touched) {
+          <small class="p-error">Contenu requis</small>
+        }
+      </div>
+
+      <div class="field">
+        <label>Catégorie</label>
+        <p-select
+          formControlName="categoryId"
+          [options]="categories()"
+          optionLabel="name"
+          optionValue="id"
+          placeholder="Choisir une catégorie"
+          class="w-full"
+        />
+        @if (promptForm.controls['categoryId'].invalid && promptForm.controls['categoryId'].touched) {
+          <small class="p-error">Catégorie requise</small>
+        }
+      </div>
+
+      <div class="flex justify-content-end gap-2 mt-3">
+        <p-button label="Annuler" severity="secondary" routerLink="/"/>
+        <p-button label="Ajouter" type="submit" [disabled]="promptForm.invalid"/>
+      </div>
+
+    </form>
+  </p-card>
+</div>

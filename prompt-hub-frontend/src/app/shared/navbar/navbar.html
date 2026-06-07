@@ -27,7 +27,7 @@
       }
 
       @if (isConnect()) {
-        <p-button label="Ajouter" icon="pi pi-plus" size="small"/>
+        <p-button routerLink="/new-prompt" label="Ajouter" icon="pi pi-plus" size="small"/>
         <p-button routerLink="/profil" icon="pi pi-user" [rounded]="true" size="small"/>
         <p-button label="Déconnexion" size="small" severity="secondary" (onClick)="logout()"/>
       }

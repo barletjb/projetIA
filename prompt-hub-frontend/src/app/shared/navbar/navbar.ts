@@ -19,7 +19,7 @@ import {InputGroupAddon} from 'primeng/inputgroupaddon';
 })
 export class Navbar {
 
-  isConnect = signal(false)
+  isConnect = signal(true)
   isDark = signal(false)
 
   toggleDarkMode(){

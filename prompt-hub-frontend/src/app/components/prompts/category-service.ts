@@ -1,23 +1,18 @@
 import {Injectable, inject} from '@angular/core'
-import {Prompt} from './models/prompt.models';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../environments/environment';
+import {Category} from './models/category.models';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PromptService {
+export class CategoryService {
 
   httpCLient = inject(HttpClient)
   apiUrl = environment.apiUrl
 
-  addPrompt(prompt: Partial<Prompt>){
-    return this.httpCLient.post<Prompt>(this.apiUrl + 'prompts', prompt)
+  getCategories(): Observable<Category[]>  {
+    return this.httpCLient.get<Category[]>(this.apiUrl + 'categories');
   }
-
-  getPrompts(): Observable<Prompt[]> {
-    return this.httpCLient.get<Prompt[]>(this.apiUrl + 'prompts')
-  }
-
 }
