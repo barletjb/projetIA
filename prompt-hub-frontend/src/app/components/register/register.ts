@@ -45,6 +45,7 @@ export class Register {
   onSubmit(): void {
     if (this.registerForm.valid) {
       console.log('Formulaire valide:', this.registerForm.value);
+      this.router.navigate(['/'])
     } else {
       console.log('Formulaire invalide');
       this.markFormGroupTouched();

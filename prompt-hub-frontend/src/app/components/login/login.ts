@@ -33,6 +33,7 @@ export class Login {
   loginUser() {
     if(this.loginForm.valid) {
       console.log('Connexion', this.loginForm.value)
+      this.router.navigate(['/'])
     } else {
       console.log('Formulaire invalide');
     }
