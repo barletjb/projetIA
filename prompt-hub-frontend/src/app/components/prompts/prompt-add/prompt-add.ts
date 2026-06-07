@@ -2,7 +2,7 @@ import {Component, inject, signal} from '@angular/core'
 import {PromptService} from '../prompt-service';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {FormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {Card} from 'primeng/card';
 import {Button} from 'primeng/button';
 import {Prompt} from '../models/prompt.models';
@@ -16,7 +16,8 @@ import {CategoryService} from '../category-service';
     Card,
     ReactiveFormsModule,
     Button,
-    Select
+    Select,
+    RouterLink
   ],
   templateUrl: './prompt-add.html',
   styleUrl: './prompt-add.scss',
